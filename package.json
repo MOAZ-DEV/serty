@@ -10,9 +10,14 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "mongodb": "^6.3.0",
     "nuxt": "^3.10.3",
+    "realm": "^12.6.1",
     "sass": "^1.71.1",
     "vue": "^3.4.19",
     "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/tailwindcss": "^6.11.4"
   }
 }
