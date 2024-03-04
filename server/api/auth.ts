@@ -1,9 +1,10 @@
-export default defineEventHandler((event) => {
+import { ClientEncryption, MongoClient, ServerApiVersion } from "mongodb";
 
-
-    const { MongoClient, ServerApiVersion } = require('mongodb');
-    const uri = "mongodb+srv://moaazallaelden:Sitany203@cluster0.dnxdl7y.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-
+export default defineEventHandler((evt) => {
+    
+    // const { MongoClient, ServerApiVersion } = require('mongodb');
+    const uri = "mongodb+srv://moaazallaelden:Sitany2003@cluster0.dnxdl7y.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+    let result: any = '';
     // Create a MongoClient with a MongoClientOptions object to set the Stable API version
     const client = new MongoClient(uri, {
         serverApi: {
@@ -19,12 +20,11 @@ export default defineEventHandler((event) => {
             await client.connect();
             // Send a ping to confirm a successful connection
             await client.db("admin").command({ ping: 1 });
-            console.log("Pinged your deployment. You successfully connected to MongoDB!");
+            result = "Pinged your deployment. You successfully connected to MongoDB!";
         } finally {
             // Ensures that the client will close when you finish/error
             await client.close();
         }
     }
-    
-    return run().catch(console.dir);
+    return run().catch(console.dir); 
 })
